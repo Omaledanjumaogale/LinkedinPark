@@ -393,11 +393,14 @@
 				<Logo size={28} />
 				<span>© 2026 LinkinPark. The LinkedIn growth operating system.</span>
 			</div>
-			<div class="flex gap-5">
+			<div class="flex flex-wrap items-center gap-5">
 				<a href="#system" class="hover:text-ink">System</a>
 				<a href="#modules" class="hover:text-ink">Modules</a>
 				<a href="/app" class="hover:text-ink">Workspace</a>
 				<a href="/checkout" class="hover:text-ink">Pricing</a>
+				<a href="https://ewinproject.org/ecosystem" class="flex items-center gap-1.5 text-mint hover:underline">
+					<Icon name="layers" size={12} /> Part of the EWIN Project Ecosystem
+				</a>
 			</div>
 		</div>
 	</footer>

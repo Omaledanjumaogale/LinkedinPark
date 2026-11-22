@@ -2,11 +2,13 @@
 	import { goto } from '$app/navigation';
 	import Logo from '$lib/components/Logo.svelte';
 	import Icon from '$lib/components/Icon.svelte';
+	import { page } from '$app/stores';
 	import { app, notify } from '$lib/store.svelte';
 
 	let email = $state('maya@fieldnote.io');
 	let password = $state('demo-workspace');
 	let loading = $state(false);
+	const oauthError = $derived($page.url.searchParams.get('error') ?? '');
 
 	function enterDemo() {
 		loading = true;
@@ -56,7 +58,23 @@
 			<h2 class="text-[26px] font-semibold tracking-[-0.03em]">Welcome back</h2>
 			<p class="mt-1.5 text-[12.5px] text-muted">Sign in to your enterprise workspace.</p>
 
-			<form class="mt-7 space-y-4" onsubmit={(event) => { event.preventDefault(); enterDemo(); }}>
+			{#if oauthError}
+				<div class="mb-4 flex items-start gap-2 rounded-lg border border-rose/30 bg-rose/8 px-3 py-2.5 text-[10.5px] leading-relaxed text-rose">
+					<Icon name="alert" size={12} class="mt-0.5 shrink-0" />
+					<span>{oauthError}</span>
+				</div>
+			{/if}
+
+			<div class="mt-7 grid grid-cols-2 gap-2">
+				<a href="/api/auth/google/start" class="btn btn-secondary !py-2.5"><Icon name="globe" size={14} /> Google</a>
+				<a href="/api/auth/github/start" class="btn btn-secondary !py-2.5"><Icon name="source" size={14} /> GitHub</a>
+			</div>
+
+			<div class="my-5 flex items-center gap-3 text-[10px] uppercase tracking-wider text-faint">
+				<span class="h-px flex-1 bg-line"></span> or use the demo <span class="h-px flex-1 bg-line"></span>
+			</div>
+
+			<form class="space-y-4" onsubmit={(event) => { event.preventDefault(); enterDemo(); }}>
 				<label class="block">
 					<span class="label">Work email</span>
 					<input class="input" type="email" bind:value={email} autocomplete="email" />
@@ -74,15 +92,15 @@
 				</button>
 			</form>
 
-			<div class="my-5 flex items-center gap-3 text-[10px] uppercase tracking-wider text-faint">
-				<span class="h-px flex-1 bg-line"></span> or <span class="h-px flex-1 bg-line"></span>
+
+			<div class="mt-3 flex flex-col items-center gap-2">
+				<button class="btn btn-secondary w-full" onclick={enterDemo}>
+					<Icon name="play" size={14} /> Enter the demo workspace
+				</button>
+				<p class="text-center text-[10.5px] leading-relaxed text-faint">
+					Demo signs you in as Maya Okafor at Fieldnote Studio with a seeded enterprise plan.
+				</p>
 			</div>
-			<button class="btn btn-secondary w-full" onclick={enterDemo}>
-				<Icon name="play" size={14} /> Enter the demo workspace
-			</button>
-			<p class="mt-3 text-center text-[10.5px] leading-relaxed text-faint">
-				Demo signs you in as Maya Okafor at Fieldnote Studio with a seeded enterprise plan.
-			</p>
 
 			<div class="mt-8 rounded-xl border border-line bg-panel/50 p-3.5">
 				<div class="flex items-center justify-between">

@@ -16,7 +16,8 @@
 		{ name: 'Serper', desc: 'News research', status: 'Ready', tone: 'blue', icon: 'globe' },
 		{ name: 'Exa', desc: 'Semantic trend search', status: 'Ready', tone: 'blue', icon: 'radar' },
 		{ name: 'Tavily', desc: 'Fact-checking', status: 'Ready', tone: 'blue', icon: 'shieldCheck' },
-		{ name: 'GitHub', desc: 'Repository analysis', status: 'Optional', tone: 'amber', icon: 'source' }
+		{ name: 'GitHub', desc: 'Repository analysis + OAuth sign-in', status: 'Connected', tone: 'mint', icon: 'source' },
+		{ name: 'EWIN Ecosystem', desc: 'Central identity + app registry', status: 'Connected', tone: 'violet', icon: 'layers' }
 	];
 
 	const audit = [

@@ -1,6 +1,7 @@
 import { browser } from '$app/environment';
 import { seedState } from '$lib/data/seed';
 import { generatePost, recomputeProfile, scoreLead, uid } from '$lib/engine';
+import { pullWorkspaceState, pushWorkspaceState, registerEcosystemInstance, syncConfigured } from '$lib/sync';
 import type {
 	AgentRun,
 	AppState,
@@ -63,17 +64,44 @@ export const studio = $state<{
 });
 
 let hydrated = false;
+let pushTimer: ReturnType<typeof setTimeout> | null = null;
 
 export function hydrate(): void {
 	if (!browser || hydrated) return;
 	Object.assign(app, load());
 	hydrated = true;
+
+	// Live sync: when Convex is configured, a newer stored snapshot replaces
+	// the local (mock) state automatically; otherwise the seed remains.
+	if (!syncConfigured()) return;
+	void (async () => {
+		try {
+			const remote = await pullWorkspaceState();
+			if (remote.available && remote.state && typeof remote.state === 'object') {
+				const remoteVersion = (remote.state as { version?: number }).version;
+				if (remoteVersion === seedState.version) {
+					Object.assign(app, remote.state);
+					notify('Workspace synced from the live backend', 'blue');
+				}
+			}
+			await registerEcosystemInstance(location.origin, '1.0.0');
+		} catch {
+			// offline or unreachable; local state stays
+		}
+	})();
 }
 
 export function persist(): void {
 	if (!browser) return;
 	try {
-		localStorage.setItem(KEY, JSON.stringify($state.snapshot(app)));
+		const snapshot = $state.snapshot(app);
+		localStorage.setItem(KEY, JSON.stringify(snapshot));
+		if (syncConfigured()) {
+			if (pushTimer) clearTimeout(pushTimer);
+			pushTimer = setTimeout(() => {
+				void pushWorkspaceState(app, app.user.email);
+			}, 900);
+		}
 	} catch {
 		// Storage can be unavailable in private mode; the session still works.
 	}

@@ -1,4 +1,4 @@
-# LinkinPark
+# LinkedinPark
 
 **The LinkedIn growth operating system.** One enterprise workspace that harmonises the strongest open-source LinkedIn engines — Content OS, LinkedIn Content Creator, LinkedIn Content Engine, Ai-LinkedIn-Engine, Catalyst's Linkedin-Engine framework pack and the LinkedIn Autonomous Content Creation Agentic System — into a single governed product.
 
@@ -8,11 +8,11 @@
 
 ## What it is
 
-LinkinPark is a working SvelteKit + Tailwind application. It runs end-to-end in the browser with a seeded demo company (Fieldnote Studio), a deterministic twelve-agent generation engine and a hard scoring gate — no API keys, accounts or network required.
+LinkedinPark is a working SvelteKit + Tailwind application. It runs end-to-end in the browser with a seeded demo company (Fieldnote Studio), a deterministic twelve-agent generation engine and a hard scoring gate — no API keys, accounts or network required.
 
 ## Harmonised feature map
 
-| Source system | Adopted into LinkinPark |
+| Source system | Adopted into LinkedinPark |
 | --- | --- |
 | `salim-ship-it/content-os` | Evidence-first workflow, voice profile, guardrails, pillars, creator analysis, sources & swipe files |
 | `AgriciDaniel/linkedin-content-creator` | Content calendar, scheduling, batch generation, carousel/document posts, hashtag panel, LinkedIn preview |
@@ -20,6 +20,20 @@ LinkinPark is a working SvelteKit + Tailwind application. It runs end-to-end in 
 | `themubiin/Ai-LinkedIn-Engine` | Topic discovery, voice-aligned writing, AI visuals, scheduled publishing, human approval gate |
 | `VilhelmVooDoo/Linkedin-Engine` | Profile optimization playbook, hook/format library, lead scoring (5-dimension rubric), DM funnels, CTA playbooks |
 | `sarveshtalele/...agentic-system` | Ingestion pipeline (PDF/web/image/text), RAG (chunker, vector store, hybrid retriever), reviewer→rewrite score loop (threshold 86), graph memory |
+
+## Live deployment
+
+| | |
+| --- | --- |
+| Production site | **https://linkedinpark.ewinproject.org** |
+| Pages.dev | https://linkinpark-1nj.pages.dev |
+| Backend | Convex `efficient-dotterel-461` (eu-west-1) — https://efficient-dotterel-461.eu-west-1.convex.cloud |
+| Health | `/api/health` — Convex connectivity, AGNES AI, OAuth, admin console, ecosystem binding |
+| Super admin | `/admin` — credentials validated against the Convex backend (hashed, 12 h sessions) |
+| Ecosystem manifest | `/api/ecosystem/manifest` |
+| Ecosystem hub | Part of the **EWIN Project Ecosystem** — registered in `Omaledanjumaogale/E_WIN_Project_Ecosystem` |
+
+**Sign-in:** Google and GitHub OAuth (server-side code exchange in Convex; 30-day hashed sessions) plus the instant demo workspace. AGNES AI (`agnes-2.5-flash`) powers live generation with an automatic deterministic fallback; client-side mock state auto-reconciles with the live `workspaceState` snapshot whenever the backend responds.
 
 ## Run it
 
@@ -75,9 +89,11 @@ Scoring follows the four-dimension rubric: Hook Power, Voice Authenticity, Value
 
 - **SvelteKit 2 + Svelte 5** — application framework, runes-based reactivity
 - **Tailwind CSS 4** — design system (`src/app.css`)
-- **Convex** — production persistence (`convex/schema.ts`): multi-tenant workspaces, posts with agent lineage, evidence graph, lead engine, audit log
-- **Cloudflare Pages** — `@sveltejs/adapter-cloudflare`, `wrangler.toml`
-- **Demo mode** — seeded state in `localStorage` (`linkinpark.workspace.v1`), resettable from Settings
+- **Convex** — live backend (`convex/`): workspaces, users + OAuth sessions, agent runs, posts, leads, voice profiles, audits, `workspaceState` snapshot sync, super-admin sessions, ecosystem heartbeat
+- **AGNES AI** — `agnes-2.5-flash` via the Convex AI action (`/api/ai/generate`) with deterministic fallback
+- **Cloudflare Pages** — `@sveltejs/adapter-cloudflare`, `wrangler.toml`, custom domain `linkedinpark.ewinproject.org`
+- **OAuth** — Google + GitHub code exchange in Convex (`/api/oauth/exchange`)
+- **Demo mode** — seeded state in `localStorage` (`linkinpark.workspace.v1`), auto-replaced by live backend state when connected
 
 ## Environment
 
@@ -87,6 +103,8 @@ See `.env.example`. Nothing is required for the demo; provider keys are only nee
 
 ```text
 src/routes/+page.svelte        # Marketing site
+src/routes/admin/              # Super-admin console (EWIN control plane)
+src/routes/api/auth/…          # Google/GitHub OAuth + session/logout
 src/routes/login|checkout      # Demo sign-in / plan activation
 src/routes/onboarding/         # 4-step workspace setup
 src/routes/app/…               # 13 workspace modules
@@ -97,4 +115,4 @@ src/lib/components/            # App shell, previews, traces, charts, modals
 convex/                        # Production schema + queries/mutations
 ```
 
-© 2026 LinkinPark. The LinkedIn growth operating system.
+© 2026 LinkedinPark. The LinkedIn growth operating system.

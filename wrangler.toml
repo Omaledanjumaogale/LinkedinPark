@@ -1,7 +1,13 @@
 name = "linkinpark"
 compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".svelte-kit/cloudflare"
 
 [vars]
-PUBLIC_SITE_URL = "https://linkinpark.pages.dev"
+PUBLIC_SITE_URL = "https://linkedinpark.ewinproject.org"
 PUBLIC_DEMO_MODE = "true"
+PUBLIC_CONVEX_URL = "https://efficient-dotterel-461.eu-west-1.convex.cloud"
+PUBLIC_CONVEX_SITE_URL = "https://efficient-dotterel-461.eu-west-1.convex.site"
+CONVEX_HTTP_ACTIONS_URL = "https://efficient-dotterel-461.eu-west-1.convex.site"
+PUBLIC_EWIN_HUB_URL = "https://ewinproject.org"
+PUBLIC_EWIN_ECOSYSTEM_URL = "https://linkedinpark.ewinproject.org"

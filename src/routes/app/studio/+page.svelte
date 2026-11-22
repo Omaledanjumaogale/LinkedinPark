@@ -7,6 +7,8 @@
 	import LinkedInPreview from '$lib/components/LinkedInPreview.svelte';
 	import AgentTrace from '$lib/components/AgentTrace.svelte';
 	import { app, notify, runPipeline, saveDraftFromStudio, schedulePost, publishPost, studio, updatePost } from '$lib/store.svelte';
+	import LinkedInPush from '$lib/components/LinkedInPush.svelte';
+	import { page } from '$app/stores';
 	import { formatDate, generatePost, scorePost } from '$lib/engine';
 	import type { PostFormat } from '$lib/types';
 
@@ -134,6 +136,32 @@
 		publishPost(post.id);
 		goto('/app/library');
 	}
+
+	function saveDraftForPush(): string {
+		const post = saveDraftFromStudio();
+		updatePost(post.id, { body, score: scored.total, scores: scored.scores });
+		return body;
+	}
+
+	function openPush() {
+		pushText = saveDraftForPush();
+		pushOpen = true;
+	}
+
+	// LinkedIn OAuth return handling (?linkedin=connected|message)
+	$effect(() => {
+		const result = $page.url.searchParams.get('linkedin');
+		if (!result) return;
+		if (result === 'connected') notify('LinkedIn connected — push posts directly from the studio');
+		else notify(result, 'amber');
+		// strip the query so a refresh does not re-toast
+		const clean = new URL($page.url);
+		clean.searchParams.delete('linkedin');
+		history.replaceState({}, '', clean);
+	});
+
+	let pushOpen = $state(false);
+	let pushText = $state('');
 
 	const formatIcon: Record<PostFormat, string> = {
 		Story: 'quote',
@@ -373,7 +401,8 @@
 			<div class="flex flex-wrap items-center gap-2">
 				<button class="btn btn-ghost btn-sm" onclick={() => notify('Draft autosaved locally', 'blue')}>Save draft</button>
 				<button class="btn btn-secondary btn-sm" onclick={schedule}><Icon name="calendar" size={12} /> Schedule</button>
-				<button class="btn btn-primary btn-sm" onclick={publish}><Icon name="send" size={12} /> Publish</button>
+				<button class="btn btn-primary btn-sm" onclick={openPush}><Icon name="send" size={12} /> Push to LinkedIn</button>
+				<button class="btn btn-ghost btn-sm" onclick={publish}>Publish internally</button>
 			</div>
 		</div>
 	</section>
@@ -466,3 +495,5 @@
 		</section>
 	</aside>
 </div>
+
+<LinkedInPush open={pushOpen} text={pushText} onclose={() => (pushOpen = false)} onpublished={() => goto('/app/library')} />

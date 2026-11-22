@@ -3,7 +3,8 @@ export type PlanStatus = 'active' | 'trialing' | 'locked' | 'past_due';
 export type Subscription = {
 	plan: string;
 	price: number;
-	interval: 'year';
+	currency: string;
+	interval: string;
 	status: PlanStatus;
 	renewal: string;
 	seats: number;

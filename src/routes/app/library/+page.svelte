@@ -6,6 +6,7 @@
 	import LinkedInPreview from '$lib/components/LinkedInPreview.svelte';
 	import EmptyState from '$lib/components/EmptyState.svelte';
 	import { app, deletePost, notify, publishPost, sendIdeaToStudio, updatePost } from '$lib/store.svelte';
+	import LinkedInPush from '$lib/components/LinkedInPush.svelte';
 	import { compact, formatDate, uid } from '$lib/engine';
 	import type { Post } from '$lib/types';
 
@@ -15,6 +16,8 @@
 	let format = $state('All');
 	let sort = $state('Newest');
 	let selected = $state<Post | null>(null);
+	let pushOpen = $state(false);
+	let pushText = $state('');
 	let previewOpen = $state(false);
 
 	const formats = ['All', 'Story', 'Hot take', 'Framework', 'Insight', 'Confession', 'List'];
@@ -188,6 +191,7 @@
 				{#if selected.status !== 'Published'}
 					<button class="btn btn-primary btn-sm w-full" onclick={() => { publishPost(selected!.id); previewOpen = false; }}>Publish now</button>
 				{/if}
+				<button class="btn btn-secondary btn-sm w-full" onclick={() => { pushText = selected!.body; pushOpen = true; }}><Icon name="send" size={11} /> Push to LinkedIn</button>
 				<button class="btn btn-secondary btn-sm w-full" onclick={() => duplicate(selected!)}><Icon name="copy" size={11} /> Duplicate</button>
 				<button class="btn btn-ghost btn-sm w-full" onclick={() => { updatePost(selected!.id, { status: 'Archived' }); previewOpen = false; }}>Archive</button>
 				<button class="btn btn-ghost btn-sm w-full !text-rose" onclick={() => { deletePost(selected!.id); previewOpen = false; }}>Delete</button>
@@ -195,3 +199,5 @@
 		</div>
 	{/if}
 </Modal>
+
+<LinkedInPush open={pushOpen} text={pushText} onclose={() => (pushOpen = false)} />

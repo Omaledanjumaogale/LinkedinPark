@@ -1,32 +1,43 @@
 import type { AppState } from '$lib/types';
 
+function dateIn(days: number): string {
+	const d = new Date();
+	d.setDate(d.getDate() + days);
+	return d.toISOString().slice(0, 10);
+}
+
+/** The one plan: ₦5,000 for 14 days of full access to every module. */
+export const PLAN = { name: 'Full Access', price: 5000, currency: 'NGN', interval: '14 days', seats: 3 } as const;
+
 export const seedState: AppState = {
-	version: 1,
+	version: 2,
 	workspace: {
 		name: 'Fieldnote Studio',
 		slug: 'fieldnote',
 		logo: 'F',
 		timezone: 'Europe/London',
-		seats: 10,
-		seatsUsed: 6,
+		seats: PLAN.seats,
+		seatsUsed: 1,
 		plan: {
-			plan: 'Enterprise',
-			price: 5000,
-			interval: 'year',
+			plan: PLAN.name,
+			price: PLAN.price,
+			currency: PLAN.currency,
+			interval: PLAN.interval,
 			status: 'active',
-			renewal: '2027-11-22',
-			seats: 10,
-			seatsUsed: 6,
+			renewal: dateIn(14),
+			seats: PLAN.seats,
+			seatsUsed: 1,
 			usage: [
-				{ label: 'AI generations', used: 1840, limit: 5000 },
-				{ label: 'Research credits', used: 612, limit: 1500 },
-				{ label: 'Scheduled posts', used: 42, limit: 250 },
-				{ label: 'Tracked leads', used: 318, limit: 1000 }
+				{ label: 'AI generations', used: 184, limit: 500 },
+				{ label: 'Research credits', used: 61, limit: 150 },
+				{ label: 'LinkedIn pushes', used: 4, limit: 40 },
+				{ label: 'Scheduled posts', used: 4, limit: 25 },
+				{ label: 'Tracked leads', used: 31, limit: 100 }
 			],
 			invoices: [
-				{ id: 'INV-2026-011', date: '2026-11-01', amount: 5000, status: 'paid' },
-				{ id: 'INV-2025-011', date: '2025-11-01', amount: 5000, status: 'paid' },
-				{ id: 'INV-2024-011', date: '2024-11-01', amount: 5000, status: 'paid' }
+				{ id: 'INV-2026-014', date: dateIn(-14), amount: 5000, status: 'paid' },
+				{ id: 'INV-2026-013', date: dateIn(-28), amount: 5000, status: 'paid' },
+				{ id: 'INV-2026-012', date: dateIn(-42), amount: 5000, status: 'paid' }
 			]
 		},
 		members: [

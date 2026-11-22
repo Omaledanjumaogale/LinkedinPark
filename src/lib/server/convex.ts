@@ -1,29 +1,52 @@
-import { ConvexHttpClient } from 'convex/browser';
 import { serverEnv } from '$lib/server/env';
 
 /**
  * Convex access from SvelteKit server endpoints.
- * Uses the public deployment URL; heavy writes also go through the Convex
- * HTTP actions endpoint for anything needing server secrets.
+ *
+ * Uses the raw Convex HTTP API (fetch) rather than ConvexHttpClient so the
+ * bundle stays Workers-safe. Heavy writes also go through the Convex HTTP
+ * actions endpoint for anything needing server secrets.
  */
 
-let client: ConvexHttpClient | null = null;
+type ConvexResult<T> = { status: string; value?: T; errorMessage?: string };
 
-export function convex(): ConvexHttpClient | null {
-	const url = serverEnv.convexUrl;
-	if (!url) return null;
-	if (!client) client = new ConvexHttpClient(url);
-	return client;
+async function call<T>(kind: 'query' | 'mutation' | 'action', path: string, args: unknown): Promise<T> {
+	const base = serverEnv.convexUrl;
+	if (!base) throw new Error('Convex is not configured');
+	const response = await fetch(`${base}/api/${kind}`, {
+		method: 'POST',
+		headers: { 'content-type': 'application/json' },
+		body: JSON.stringify({ path, args, format: 'json' })
+	});
+	if (!response.ok) throw new Error(`Convex ${kind} failed (${response.status})`);
+	const data = (await response.json()) as ConvexResult<T>;
+	if (data.status !== 'success') throw new Error(data.errorMessage || `Convex ${kind} failed`);
+	return data.value as T;
 }
 
 export type ConvexApi = {
+	query: <T = unknown>(path: string, args: unknown) => Promise<T>;
+	mutation: <T = unknown>(path: string, args: unknown) => Promise<T>;
+	action: <T = unknown>(path: string, args: unknown) => Promise<T>;
+};
+
+export function convex(): ConvexApi | null {
+	if (!serverEnv.convexUrl) return null;
+	return {
+		query: (path, args) => call('query', path, args),
+		mutation: (path, args) => call('mutation', path, args),
+		action: (path, args) => call('action', path, args)
+	};
+}
+
+export type ConvexHealth = {
 	ok: boolean;
 	configured: boolean;
 	ping?: unknown;
 	error?: string;
 };
 
-export async function convexHealth(): Promise<ConvexApi> {
+export async function convexHealth(): Promise<ConvexHealth> {
 	const url = serverEnv.convexActionsUrl || serverEnv.convexUrl;
 	if (!url) return { ok: false, configured: false, error: 'PUBLIC_CONVEX_URL is not set' };
 	try {

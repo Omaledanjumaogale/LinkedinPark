@@ -10,10 +10,16 @@ export const serverEnv = {
 		return env.PUBLIC_SITE_URL || 'http://localhost:4174';
 	},
 	get convexUrl(): string {
-		return env.PUBLIC_CONVEX_URL || '';
+		return (
+			env.PUBLIC_CONVEX_URL ||
+			(env.CONVEX_HTTP_ACTIONS_URL || env.PUBLIC_CONVEX_SITE_URL || '').replace('.convex.site', '.convex.cloud')
+		);
 	},
 	get convexActionsUrl(): string {
-		return env.CONVEX_HTTP_ACTIONS_URL || (env.PUBLIC_CONVEX_URL || '').replace('.convex.cloud', '.convex.site');
+		return (
+			env.CONVEX_HTTP_ACTIONS_URL ||
+			(env.PUBLIC_CONVEX_URL || env.PUBLIC_CONVEX_SITE_URL || '').replace('.convex.cloud', '.convex.site')
+		);
 	},
 	get deployKey(): string {
 		return env.CONVEX_DEPLOY_KEY || '';
@@ -48,6 +54,15 @@ export const serverEnv = {
 	get githubClientSecret(): string {
 		return env.GITHUB_CLIENT_SECRET || '';
 	},
+	get linkedinClientId(): string {
+		return env.LINKEDIN_CLIENT_ID || '';
+	},
+	get linkedinClientSecret(): string {
+		return env.LINKEDIN_CLIENT_SECRET || '';
+	},
+	get linkedinRedirectUri(): string {
+		return env.LINKEDIN_REDIRECT_URI || '';
+	},
 	get ewinHubUrl(): string {
 		return env.PUBLIC_EWIN_HUB_URL || 'https://ewinproject.org';
 	},
@@ -59,6 +74,6 @@ export const serverEnv = {
 	}
 };
 
-export function oauthCallback(provider: 'google' | 'github', origin: string): string {
+export function oauthCallback(provider: 'google' | 'github' | 'linkedin', origin: string): string {
 	return `${origin}/api/auth/${provider}/callback`;
 }

@@ -49,7 +49,7 @@ export const upsertWorkspace = mutation({
 			slug: args.slug,
 			name: args.name,
 			ownerEmail: args.ownerEmail,
-			plan: args.plan ?? 'Enterprise',
+			plan: args.plan ?? 'Full Access',
 			planStatus: args.planStatus ?? 'active',
 			seatLimit: args.seatLimit ?? 10,
 			seatsUsed: 1,

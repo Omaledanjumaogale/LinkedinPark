@@ -28,11 +28,11 @@
 	];
 
 	const faqs = [
-		{ q: 'Why $5,000 per year?', a: 'LinkedinPark is one enterprise workspace, not a $29 content scheduler. The plan includes ten seats, unlimited agent runs, research credits, lead intelligence, profile optimisation, automations and priority support. It replaces four to six separate tools and the manual work between them.' },
+		{ q: 'Why ₦5,000 for 14 days?', a: 'LinkedinPark is one enterprise workspace, not a ₦2,900 content scheduler. The Full Access pass covers every module for the full 14 days — agent runs, research credits, LinkedIn publishing, lead intelligence, profile optimisation, automations and priority support — and it replaces four to six separate tools and the manual work between them.' },
 		{ q: 'Do I need API keys to try it?', a: 'No. The demo workspace ships with a complete seeded company, twelve agents and a deterministic generation engine. Agent runs, scoring, research and lead qualification all work without a provider key. Connecting your own models is optional.' },
 		{ q: 'Does it post to LinkedIn for me?', a: 'The workspace prepares, scores and schedules content. Publishing is a deliberate human gate: you approve the copy, then publish via the connected LinkedIn integration or copy the final post. Automations can draft and route, never publish without approval by default.' },
 		{ q: 'How is this different from a content calendar?', a: 'A calendar manages output. LinkedinPark manages the system that produces output: evidence, voice, research, scoring, profile conversion, lead qualification and the learning loop after publishing.' },
-		{ q: 'Can my team use it together?', a: 'Yes. Enterprise includes ten seats with Owner, Admin, Editor and Analyst roles, shared evidence, review queues, audit history and workspace-level guardrails.' }
+		{ q: 'Can my team use it together?', a: 'Yes. Full Access includes three seats with Owner, Admin, Editor and Analyst roles, shared evidence, review queues, audit history and workspace-level guardrails.' }
 	];
 
 	let openFaq = $state(0);
@@ -85,7 +85,7 @@
 			<div class="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-mono text-[9.5px] uppercase tracking-[0.12em] text-faint">
 				<span class="flex items-center gap-1.5"><Icon name="check" size={11} class="text-mint" /> No credit card in demo</span>
 				<span class="flex items-center gap-1.5"><Icon name="check" size={11} class="text-mint" /> 12 agents included</span>
-				<span class="flex items-center gap-1.5"><Icon name="check" size={11} class="text-mint" /> One $5,000 plan</span>
+				<span class="flex items-center gap-1.5"><Icon name="check" size={11} class="text-mint" /> One ₦5,000 pass</span>
 			</div>
 		</div>
 
@@ -325,21 +325,21 @@
 		<div class="relative mx-auto mt-10 grid max-w-4xl overflow-hidden rounded-2xl border border-line bg-panel md:grid-cols-[1.15fr_.85fr]">
 			<div class="border-b border-line p-6 md:border-b-0 md:border-r md:p-8">
 				<div class="flex items-center justify-between">
-					<span class="chip chip-mint">Enterprise</span>
-					<span class="font-mono text-[9px] uppercase tracking-wider text-faint">Billed annually</span>
+					<span class="chip chip-mint">Full Access</span>
+					<span class="font-mono text-[9px] uppercase tracking-wider text-faint">Billed every 14 days</span>
 				</div>
 				<div class="mt-5 flex items-baseline gap-2">
-					<span class="stat-number text-[48px] leading-none">$5,000</span>
-					<span class="text-[12px] text-muted">/ year</span>
+					<span class="stat-number text-[48px] leading-none">₦5,000</span>
+					<span class="text-[12px] text-muted">/ 14 days</span>
 				</div>
-				<div class="mt-1 text-[11px] text-faint">≈ $417 / month · 10 seats included</div>
-				<a href="/checkout" class="btn btn-primary btn-lg mt-6 w-full">Activate Enterprise <Icon name="arrowRight" size={14} /></a>
+				<div class="mt-1 text-[11px] text-faint">≈ ₦357 / day · full access included</div>
+				<a href="/checkout" class="btn btn-primary btn-lg mt-6 w-full">Activate Full Access <Icon name="arrowRight" size={14} /></a>
 				<p class="mt-3 text-center text-[10px] text-faint">Instant demo activation. No card required in this environment.</p>
 			</div>
 			<div class="p-6 md:p-8">
 				<div class="text-[11px] font-medium uppercase tracking-[0.12em] text-faint">Included</div>
 				<ul class="mt-4 grid gap-2.5">
-					{#each ['12 specialist agents', 'Unlimited content generations', 'Research radar + 1,500 credits/mo', 'Lead engine + 1,000 tracked leads', 'Profile Lab + Voice DNA', 'Automations + analytics', '10 seats with roles', 'Priority support'] as item}
+					{#each ['Specialist agent pipeline', 'Unlimited content generations', 'Research radar + 150 credits/cycle', 'Lead engine + 100 tracked leads', 'Profile Lab + Voice DNA', 'Automations + analytics', 'Direct LinkedIn publishing', 'Priority support'] as item}
 						<li class="flex items-center gap-2.5 text-[12px] text-muted"><Icon name="check" size={13} class="shrink-0 text-mint" />{item}</li>
 					{/each}
 				</ul>
@@ -381,7 +381,7 @@
 				<p class="mx-auto mt-4 max-w-lg text-[13px] leading-relaxed text-muted">Open the demo workspace, run a full pipeline and see the difference between generated content and governed content.</p>
 				<div class="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
 					<a href="/login?demo=1" class="btn btn-primary btn-lg">Open the workspace <Icon name="arrowRight" size={14} /></a>
-					<a href="/checkout" class="btn btn-secondary btn-lg">Activate for $5,000/yr</a>
+					<a href="/checkout" class="btn btn-secondary btn-lg">Activate for ₦5,000 / 14 days</a>
 				</div>
 			</div>
 		</div>

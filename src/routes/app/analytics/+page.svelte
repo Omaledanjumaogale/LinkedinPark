@@ -116,7 +116,7 @@
 			{/each}
 		</div>
 		<div class="mt-4 rounded-lg border border-mint/15 bg-mint/5 p-3">
-			<div class="text-[10px] text-mint">17 meetings from content this quarter · $1.24m influenced pipeline</div>
+			<div class="text-[10px] text-mint">17 meetings from content this quarter · ₦1.9bn influenced pipeline</div>
 		</div>
 	</section>
 </div>

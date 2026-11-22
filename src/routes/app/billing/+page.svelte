@@ -9,13 +9,13 @@
 	const members = $derived(app.workspace.members);
 
 	const features = [
-		['Agents & pipeline', 'Unlimited runs, all 12 specialists', true],
-		['Research radar', '1,500 credits / month', true],
+		['Agents & pipeline', 'Unlimited runs, all specialists', true],
+		['Research radar', '150 credits / cycle', true],
 		['Content calendar', 'Unlimited scheduling', true],
-		['Lead engine', '1,000 tracked leads', true],
+		['Lead engine', '100 tracked leads', true],
 		['Profile Lab', 'Audits and A/B testing', true],
 		['Automations', 'All four + custom builder', true],
-		['Seats', '10 included', true],
+		['Seats', '3 included', true],
 		['Support', 'Priority + onboarding', true]
 	] as const;
 
@@ -29,7 +29,7 @@
 <PageHeader
 	eyebrow="Plan & billing"
 	title="One plan. No seat maths."
-	description="Your enterprise workspace covers every module, ten seats and unlimited agent runs. Renewal, usage and invoices live here."
+	description="Your Full Access pass covers every module for the full 14-day cycle. Renewal, usage and invoices live here."
 >
 	{#snippet actions()}
 		<span class="chip chip-mint"><Icon name="checkCircle" size={12} /> {app.workspace.plan.plan} · active</span>
@@ -38,7 +38,7 @@
 </PageHeader>
 
 <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-	<MetricCard label="Plan" value="$5,000" note="Billed annually · renews {new Date(app.workspace.plan.renewal).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}" icon="billing" accent="mint" />
+	<MetricCard label="Plan" value="₦5,000" note="Billed every 14 days · renews {new Date(app.workspace.plan.renewal).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}" icon="billing" accent="mint" />
 	<MetricCard label="Seats" value="{app.workspace.seatsUsed}/{app.workspace.seats}" note={`${app.workspace.seats - app.workspace.seatsUsed} available to invite`} icon="leads" accent="blue" />
 	<MetricCard label="AI runs this month" value={usage[0].used.toLocaleString()} note={`of ${usage[0].limit.toLocaleString()} included`} icon="spark" accent="lime" values={[120, 260, 400, 620, 900, 1200, 1500, usage[0].used]} />
 	<MetricCard label="Invoices" value={String(invoices.length)} note="All paid · no open balance" icon="check" accent="amber" />
@@ -48,7 +48,7 @@
 	<div class="space-y-3">
 		<section class="card p-5">
 			<div class="flex items-center justify-between">
-				<div class="text-[13px] font-semibold">Included in Enterprise</div>
+				<div class="text-[13px] font-semibold">Included in Full Access</div>
 				<span class="chip chip-mint !py-0.5 text-[8.5px]">All access</span>
 			</div>
 			<div class="mt-4 grid gap-2 sm:grid-cols-2">
@@ -111,19 +111,19 @@
 			<div class="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-mint/10 blur-3xl"></div>
 			<div class="relative">
 				<div class="flex items-center justify-between">
-					<span class="chip chip-mint">Enterprise</span>
-					<span class="font-mono text-[9px] uppercase tracking-wider text-faint">Annual</span>
+					<span class="chip chip-mint">Full Access</span>
+					<span class="font-mono text-[9px] uppercase tracking-wider text-faint">14-day</span>
 				</div>
 				<div class="mt-4 flex items-baseline gap-1.5">
-					<span class="stat-number text-[36px] leading-none">$5,000</span>
-					<span class="text-[11px] text-muted">/ year</span>
+					<span class="stat-number text-[36px] leading-none">₦5,000</span>
+					<span class="text-[11px] text-muted">/ 14 days</span>
 				</div>
 				<div class="mt-1 text-[10px] text-faint">Next charge {new Date(app.workspace.plan.renewal).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}</div>
 				<div class="my-4 divider"></div>
 				<div class="space-y-2 text-[11px]">
-					<div class="flex justify-between"><span class="text-muted">Plan</span><span>$5,000.00</span></div>
-					<div class="flex justify-between"><span class="text-muted">Tax</span><span>$0.00</span></div>
-					<div class="flex justify-between font-medium"><span>Total</span><span>$5,000.00</span></div>
+					<div class="flex justify-between"><span class="text-muted">Full Access · 14 days</span><span>₦5,000.00</span></div>
+					<div class="flex justify-between"><span class="text-muted">VAT (7.5% where applicable)</span><span>₦0.00</span></div>
+					<div class="flex justify-between font-medium"><span>Total</span><span>₦5,000.00</span></div>
 				</div>
 				<button class="btn btn-secondary btn-sm mt-4 w-full" onclick={() => notify('Renewal settings opened (demo)', 'blue')}>Renewal settings</button>
 			</div>
@@ -156,7 +156,7 @@
 				<span class="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-blue/10 text-blue"><Icon name="help" size={14} /></span>
 				<div>
 					<div class="text-[11.5px] font-medium">Priority support</div>
-					<p class="mt-1 text-[10px] leading-relaxed text-muted">Enterprise includes a dedicated channel and a 4-hour response target during business days.</p>
+					<p class="mt-1 text-[10px] leading-relaxed text-muted">Full Access includes a dedicated channel and a 4-hour response target during business days.</p>
 				</div>
 			</div>
 		</section>

@@ -70,7 +70,7 @@
 	<MetricCard label="Reach · 30 days" value={compact(series.slice(-4).reduce((sum, p) => sum + p.impressions, 0))} delta="22.4%" note="vs. previous 30 days" icon="eye" accent="mint" values={series.map((p) => p.impressions)} />
 	<MetricCard label="Qualified leads" value={String(app.leads.filter((l) => l.tier <= 2).length)} delta="18.2%" note="84 in the last 90 days" icon="leads" accent="blue" values={series.map((p) => p.leads + 20)} />
 	<MetricCard label="Median post score" value="92" delta="6 pts" note="Across 28 published posts" icon="target" accent="lime" values={[72, 76, 74, 80, 83, 81, 86, 88, 90, 89, 92, 92]} />
-	<MetricCard label="Pipeline influenced" value="$1.24m" delta="31.0%" note="27 open opportunities" icon="chart" accent="amber" values={[20, 30, 28, 42, 38, 55, 51, 62, 70, 68, 84, 92]} />
+	<MetricCard label="Pipeline influenced" value="₦1.9bn" delta="31.0%" note="27 open opportunities" icon="chart" accent="amber" values={[20, 30, 28, 42, 38, 55, 51, 62, 70, 68, 84, 92]} />
 </div>
 
 <div class="mt-3 grid gap-3 xl:grid-cols-[1.55fr_1fr]">

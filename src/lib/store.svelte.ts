@@ -132,14 +132,16 @@ export function resetWorkspace(): void {
 
 export function activatePlan(): void {
 	app.workspace.plan.status = 'active';
+	app.workspace.plan.renewal = new Date(Date.now() + 14 * 86400_000).toISOString().slice(0, 10);
+	app.workspace.seats = app.workspace.plan.seats;
 	persist();
-	notify('Enterprise plan active — all modules unlocked');
+	notify('Full Access active — every module unlocked for 14 days');
 }
 
 export function lockPlan(): void {
 	app.workspace.plan.status = 'locked';
 	persist();
-	notify('Plan locked — activate Enterprise to continue', 'amber');
+	notify('Plan locked — activate Full Access to continue', 'amber');
 }
 
 export function runPipeline(): AgentRun {
@@ -211,6 +213,58 @@ export function deletePost(id: string): void {
 	app.posts = app.posts.filter((post) => post.id !== id);
 	persist();
 	notify('Post removed', 'rose');
+}
+
+export type LinkedInPushResult = { ok: boolean; error?: string; needsConnect?: boolean };
+
+/** Push text straight into LinkedIn through the backend member token. */
+export async function pushToLinkedIn(text: string): Promise<LinkedInPushResult> {
+	try {
+		const response = await fetch('/api/linkedin/publish', {
+			method: 'POST',
+			headers: { 'content-type': 'application/json' },
+			body: JSON.stringify({ text })
+		});
+		return (await response.json()) as LinkedInPushResult;
+	} catch (error) {
+		return { ok: false, error: String(error) };
+	}
+}
+
+/** Check the workspace LinkedIn connection state. */
+export async function linkedinStatus(): Promise<{ configured: boolean; connected: boolean; account?: { name?: string; email?: string | null } | null }> {
+	try {
+		const response = await fetch('/api/linkedin/status');
+		return (await response.json()) as { configured: boolean; connected: boolean; account?: { name?: string; email?: string | null } | null };
+	} catch {
+		return { configured: false, connected: false };
+	}
+}
+
+/** Manual push: copy the text and open the LinkedIn composer. */
+export async function manualLinkedInPush(text: string): Promise<void> {
+	try {
+		await navigator.clipboard.writeText(text);
+		notify('Post copied — paste it into the LinkedIn composer');
+	} catch {
+		notify('Copy failed — select the text manually', 'amber');
+	}
+	window.open('https://www.linkedin.com/feed/?share=true', '_blank', 'noopener');
+}
+
+/** Publish a post inside LinkedinPark and push it to LinkedIn in one step. */
+export async function publishAndPush(id: string, body: string): Promise<LinkedInPushResult> {
+	updatePost(id, { body });
+	const result = await pushToLinkedIn(body);
+	if (result.ok) {
+		publishPost(id);
+		notify('Pushed to LinkedIn — live on your feed');
+	} else if (result.needsConnect) {
+		notify(result.error ?? 'Connect LinkedIn to push directly', 'amber');
+	} else {
+		notify(result.error ?? 'LinkedIn push failed', 'rose');
+	}
+	return result;
 }
 
 export function publishPost(id: string): void {

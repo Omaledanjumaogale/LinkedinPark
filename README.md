@@ -2,13 +2,13 @@
 
 **The LinkedIn growth operating system.** One enterprise workspace that harmonises the strongest open-source LinkedIn engines — Content OS, LinkedIn Content Creator, LinkedIn Content Engine, Ai-LinkedIn-Engine, Catalyst's Linkedin-Engine framework pack and the LinkedIn Autonomous Content Creation Agentic System — into a single governed product.
 
-> **Plan:** Enterprise, **$5,000 / year**. Ten seats, every module, unlimited agent runs.
+> **Plan:** Full Access, **₦5,000 / 14 days** (Nigerian Naira). Every module, every day, with direct LinkedIn publishing.
 
 ---
 
 ## What it is
 
-LinkedinPark is a working SvelteKit + Tailwind application. It runs end-to-end in the browser with a seeded demo company (Fieldnote Studio), a deterministic twelve-agent generation engine and a hard scoring gate — no API keys, accounts or network required.
+LinkedinPark is a working SvelteKit + Tailwind application. It runs end-to-end in the browser with a seeded demo company (Fieldnote Studio), a deterministic seven-agent generation engine and a hard scoring gate — and when the backend is configured it syncs to Convex, generates with AGNES AI and pushes posts straight into LinkedIn.
 
 ## Harmonised feature map
 
@@ -31,6 +31,7 @@ LinkedinPark is a working SvelteKit + Tailwind application. It runs end-to-end i
 | Health | `/api/health` — Convex connectivity, AGNES AI, OAuth, admin console, ecosystem binding |
 | Super admin | `/admin` — credentials validated against the Convex backend (hashed, 12 h sessions) |
 | Ecosystem manifest | `/api/ecosystem/manifest` |
+| LinkedIn publishing | `/api/linkedin/{start,callback,status,publish,disconnect}` — member OAuth (w_member_social) with the token kept server-side; posts go out through the Convex `linkedin:publishPost` action. Manual push (copy + composer) works without credentials |
 | Ecosystem hub | Part of the **EWIN Project Ecosystem** — registered in `Omaledanjumaogale/E_WIN_Project_Ecosystem` |
 
 **Sign-in:** Google and GitHub OAuth (server-side code exchange in Convex; 30-day hashed sessions) plus the instant demo workspace. AGNES AI (`agnes-2.5-flash`) powers live generation with an automatic deterministic fallback; client-side mock state auto-reconciles with the live `workspaceState` snapshot whenever the backend responds.
@@ -45,7 +46,7 @@ npm run dev
 Open the printed URL.
 
 - Landing page → **Enter the live workspace**, or go directly to `/login?demo=1`
-- Checkout: `/checkout` activates the $5,000 Enterprise plan (simulated)
+- Checkout: `/checkout` activates the ₦5,000 / 14-day Full Access pass (simulated)
 - Workspace: `/app` — 13 full modules
 
 ### Quality checks
@@ -72,7 +73,7 @@ npm run preview
 | Automations | 4 live automations, pause/resume, audit trail |
 | Analytics | 12-week chart, funnel, format performance, top hooks, audience donut, analyst synthesis |
 | Frameworks | 20-item playbook library (hooks, formats, headlines, CTAs) |
-| Billing | $5,000 Enterprise plan, usage meters, invoices, seats |
+| Billing | ₦5,000 / 14-day Full Access pass, usage meters, invoices, seats |
 | Settings | Workspace, members/roles, integrations, audit trail, guardrails, demo reset |
 
 ## The pipeline

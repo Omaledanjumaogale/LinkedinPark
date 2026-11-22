@@ -44,6 +44,6 @@ export const GET: RequestHandler = ({ url }) => {
 			'oauth:github'
 		],
 		accounts: 'Independent — LinkedInPark retains its own sign-in and workspace state.',
-		plan: { name: 'Enterprise', price: 5000, interval: 'year', seats: 10 }
+		plan: { name: 'Full Access', price: 5000, currency: 'NGN', interval: '14 days', seats: 3 }
 	});
 };

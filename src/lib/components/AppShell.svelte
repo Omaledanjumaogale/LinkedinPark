@@ -89,7 +89,7 @@
 				<span class="min-w-0 flex-1">
 					<span class="block truncate text-[12px] font-medium text-ink">{app.workspace.name}</span>
 					<span class="mt-0.5 flex items-center gap-1 text-[10px] text-faint">
-						Enterprise <span class="h-0.5 w-0.5 rounded-full bg-faint"></span> {app.workspace.seatsUsed}/{app.workspace.seats} seats
+						{app.workspace.plan.plan} <span class="h-0.5 w-0.5 rounded-full bg-faint"></span> {app.workspace.seatsUsed}/{app.workspace.seats} seats
 					</span>
 				</span>
 				<Icon name="chevronDown" size={13} class="text-faint" />
@@ -131,8 +131,8 @@
 		<div class="shrink-0 border-t border-line p-3">
 			<div class="rounded-xl border border-line bg-gradient-to-b from-panel-2 to-panel p-3">
 				<div class="flex items-center justify-between">
-					<span class="font-mono text-[9px] uppercase tracking-[0.14em] text-mint">Enterprise</span>
-					<span class="text-[10px] text-faint">$5,000/yr</span>
+					<span class="font-mono text-[9px] uppercase tracking-[0.14em] text-mint">{app.workspace.plan.plan}</span>
+					<span class="text-[10px] text-faint">₦5,000 · 14d</span>
 				</div>
 				<div class="mt-2 flex items-baseline gap-1">
 					<span class="stat-number text-[17px]">{plan.usage[0].used.toLocaleString()}</span>

@@ -23,7 +23,7 @@
 	type Item = { label: string; href?: string; icon: string; group: string; action?: () => void; hint?: string };
 	const actions: Item[] = [
 		{ label: 'Write a new post', icon: 'plus', group: 'Actions', action: () => goto('/app/studio'), hint: 'Open studio' },
-		{ label: 'Activate Enterprise plan', icon: 'lock', group: 'Actions', action: () => activatePlan(), hint: '$5,000 / year' },
+		{ label: 'Activate Full Access plan', icon: 'lock', group: 'Actions', action: () => activatePlan(), hint: '₦5,000 / 14 days' },
 		{ label: 'Reset demo workspace', icon: 'refresh', group: 'Actions', action: () => resetWorkspace(), hint: 'Restore seed data' }
 	];
 	const items: Item[] = [...routes, ...actions];

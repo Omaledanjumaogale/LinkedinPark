@@ -48,7 +48,7 @@
 			</div>
 		</div>
 		<div class="relative flex items-center gap-2 font-mono text-[9px] uppercase tracking-[0.12em] text-faint">
-			<Icon name="shieldCheck" size={12} class="text-mint" /> Enterprise workspace · $5,000 / year · 10 seats
+			<Icon name="shieldCheck" size={12} class="text-mint" /> Full access · ₦5,000 / 14 days · every module
 		</div>
 	</div>
 
@@ -105,9 +105,9 @@
 			<div class="mt-8 rounded-xl border border-line bg-panel/50 p-3.5">
 				<div class="flex items-center justify-between">
 					<span class="text-[11px] font-medium">No workspace yet?</span>
-					<a href="/checkout" class="text-[11px] text-mint hover:underline">Activate Enterprise</a>
+					<a href="/checkout" class="text-[11px] text-mint hover:underline">Activate Full Access</a>
 				</div>
-				<p class="mt-1 text-[10.5px] leading-relaxed text-faint">$5,000 per year · 10 seats · every module included.</p>
+				<p class="mt-1 text-[10.5px] leading-relaxed text-faint">₦5,000 for 14 days · every module included · cancel anytime.</p>
 			</div>
 		</div>
 	</div>

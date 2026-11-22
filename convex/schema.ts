@@ -164,6 +164,20 @@ export default defineSchema({
 		updatedAt: v.number()
 	}).index('by_slug', ['slug']),
 
+	/** LinkedIn publishing accounts (one member OAuth token per workspace). */
+	linkedinAccounts: defineTable({
+		workspaceSlug: v.string(),
+		memberUrn: v.string(),
+		name: v.string(),
+		email: v.optional(v.string()),
+		accessToken: v.string(),
+		scope: v.optional(v.string()),
+		connectedAt: v.number(),
+		expiresAt: v.number()
+	})
+		.index('by_workspace', ['workspaceSlug'])
+		.index('by_member', ['memberUrn']),
+
 	/** EWIN ecosystem heartbeat: standalone instances registering themselves. */
 	ecosystemInstances: defineTable({
 		app: v.string(),

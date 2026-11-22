@@ -12,6 +12,7 @@ import type * as admin from "../admin.js";
 import type * as ai from "../ai.js";
 import type * as ecosystem from "../ecosystem.js";
 import type * as http from "../http.js";
+import type * as linkedin from "../linkedin.js";
 import type * as oauth from "../oauth.js";
 import type * as runs from "../runs.js";
 import type * as sync from "../sync.js";
@@ -28,6 +29,7 @@ declare const fullApi: ApiFromModules<{
   ai: typeof ai;
   ecosystem: typeof ecosystem;
   http: typeof http;
+  linkedin: typeof linkedin;
   oauth: typeof oauth;
   runs: typeof runs;
   sync: typeof sync;

@@ -20,7 +20,7 @@
 		<div class="relative">
 			<div class="flex items-center justify-between gap-4">
 				<Logo />
-				<span class="chip chip-amber"><Icon name="lock" size={12} /> Enterprise access</span>
+				<span class="chip chip-amber"><Icon name="lock" size={12} /> Full access required</span>
 			</div>
 			<div class="mt-8 grid gap-8 md:grid-cols-[1.1fr_.9fr]">
 				<div>
@@ -44,10 +44,10 @@
 					<div>
 						<div class="flex items-end justify-between">
 							<div>
-								<div class="text-[11px] uppercase tracking-[0.14em] text-faint">Enterprise</div>
+								<div class="text-[11px] uppercase tracking-[0.14em] text-faint">Full Access</div>
 								<div class="mt-2 flex items-baseline gap-1.5">
-									<span class="stat-number text-[38px] leading-none">$5,000</span>
-									<span class="text-[12px] text-muted">/ year</span>
+									<span class="stat-number text-[38px] leading-none">₦5,000</span>
+									<span class="text-[12px] text-muted">/ 14 days</span>
 								</div>
 							</div>
 							<span class="chip chip-mint">All access</span>
@@ -61,11 +61,11 @@
 						</div>
 					</div>
 					<div class="mt-7">
-						<button class="btn btn-primary btn-lg w-full" onclick={() => { activatePlan(); notify('Enterprise plan activated'); }}>
-							<Icon name="lock" size={15} /> Activate Enterprise
+						<button class="btn btn-primary btn-lg w-full" onclick={() => { activatePlan(); notify('Full Access plan activated'); }}>
+							<Icon name="lock" size={15} /> Activate Full Access
 						</button>
 						<p class="mt-3 text-center text-[10.5px] leading-relaxed text-faint">
-							Billed annually. Cancel renewal anytime. Demo activation is instant and does not charge a card.
+							One ₦5,000 pass covers every module for 14 days. Cancel renewal anytime. Demo activation is instant and does not charge a card.
 						</p>
 					</div>
 				</div>

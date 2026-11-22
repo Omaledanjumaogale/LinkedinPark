@@ -46,14 +46,14 @@
 		ideaOpen = false;
 	}
 
-	function askLinkinPark() {
+	function askLinkedinPark() {
 		if (!ask.trim()) return;
 		studio.settings.topic = ask.trim();
 		goto('/app/studio');
 	}
 </script>
 
-<svelte:head><title>Command Center · LinkinPark</title></svelte:head>
+<svelte:head><title>Command Center · LinkedinPark</title></svelte:head>
 
 <PageHeader
 	eyebrow="Command center"
@@ -288,12 +288,12 @@
 <div class="card mt-3 flex flex-col gap-3 p-4 md:flex-row md:items-center">
 	<span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-mint/20 bg-mint/8 text-mint"><Icon name="spark" size={17} /></span>
 	<div class="min-w-0 flex-1">
-		<div class="text-[12px] font-medium">What should LinkinPark write next?</div>
+		<div class="text-[12px] font-medium">What should LinkedinPark write next?</div>
 		<div class="text-[10.5px] text-faint">Give it a topic. It will research, draft, score and rewrite before you see it.</div>
 	</div>
 	<div class="flex w-full gap-2 md:w-auto">
-		<input class="input md:w-[340px]" bind:value={ask} placeholder="e.g. why insight decks don’t change roadmaps" onkeydown={(e) => { if (e.key === 'Enter') askLinkinPark(); }} />
-		<button class="btn btn-primary shrink-0" onclick={askLinkinPark}><Icon name="arrowRight" size={14} /> Run</button>
+		<input class="input md:w-[340px]" bind:value={ask} placeholder="e.g. why insight decks don’t change roadmaps" onkeydown={(e) => { if (e.key === 'Enter') askLinkedinPark(); }} />
+		<button class="btn btn-primary shrink-0" onclick={askLinkedinPark}><Icon name="arrowRight" size={14} /> Run</button>
 	</div>
 </div>
 

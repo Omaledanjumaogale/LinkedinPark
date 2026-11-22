@@ -19,7 +19,7 @@
 	}
 </script>
 
-<svelte:head><title>Sign in · LinkinPark</title></svelte:head>
+<svelte:head><title>Sign in · LinkedinPark</title></svelte:head>
 
 <div class="grid min-h-screen bg-canvas lg:grid-cols-2">
 	<div class="relative hidden overflow-hidden border-r border-line p-10 lg:flex lg:flex-col lg:justify-between">

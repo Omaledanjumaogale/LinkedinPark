@@ -36,7 +36,7 @@
 	}
 </script>
 
-<svelte:head><title>Settings · LinkinPark</title></svelte:head>
+<svelte:head><title>Settings · LinkedinPark</title></svelte:head>
 
 <PageHeader
 	eyebrow="Settings"

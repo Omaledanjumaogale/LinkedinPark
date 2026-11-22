@@ -43,7 +43,7 @@
 	}
 </script>
 
-<svelte:head><title>Profile Lab · LinkinPark</title></svelte:head>
+<svelte:head><title>Profile Lab · LinkedinPark</title></svelte:head>
 
 <PageHeader
 	eyebrow="Profile lab"

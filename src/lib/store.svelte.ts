@@ -14,7 +14,8 @@ import type {
 	VoiceProfile
 } from '$lib/types';
 
-const KEY = 'linkinpark.workspace.v1';
+const KEY = 'linkedinpark.workspace.v1';
+const LEGACY_KEY = 'linkinpark.workspace.v1';
 
 function clone<T>(value: T): T {
 	return structuredClone(value);
@@ -23,7 +24,14 @@ function clone<T>(value: T): T {
 function load(): AppState {
 	if (!browser) return clone(seedState);
 	try {
-		const raw = localStorage.getItem(KEY);
+		let raw = localStorage.getItem(KEY);
+		const legacy = !raw ? localStorage.getItem(LEGACY_KEY) : null;
+		if (legacy) {
+			// carry over state saved under the pre-rename key
+			raw = legacy;
+			localStorage.setItem(KEY, legacy);
+			localStorage.removeItem(LEGACY_KEY);
+		}
 		if (!raw) return clone(seedState);
 		const parsed = JSON.parse(raw) as AppState;
 		if (!parsed || parsed.version !== seedState.version) return clone(seedState);

@@ -1,9 +1,9 @@
 {
-  "name": "linkinpark",
+  "name": "linkedinpark",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "LinkinPark — the enterprise LinkedIn growth operating system. One workspace for research, content, profile, leads and revenue.",
+  "description": "LinkedinPark — the enterprise LinkedIn growth operating system. One workspace for research, content, profile, leads and revenue.",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",

@@ -29,7 +29,7 @@
 						Your LinkedIn growth<br /><span class="gradient-text">operating system.</span>
 					</h1>
 					<p class="mt-4 max-w-md text-[13.5px] leading-relaxed text-muted">
-						LinkinPark replaces the scattered content tools, research docs, lead spreadsheets and profile guesswork with one governed workspace.
+						LinkedinPark replaces the scattered content tools, research docs, lead spreadsheets and profile guesswork with one governed workspace.
 					</p>
 					<ul class="mt-6 grid gap-2.5">
 						{#each features as feature}

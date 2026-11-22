@@ -24,7 +24,7 @@
 	}
 </script>
 
-<svelte:head><title>Billing · LinkinPark</title></svelte:head>
+<svelte:head><title>Billing · LinkedinPark</title></svelte:head>
 
 <PageHeader
 	eyebrow="Plan & billing"

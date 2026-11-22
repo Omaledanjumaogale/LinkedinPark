@@ -24,13 +24,13 @@
 		loading = true;
 		setTimeout(() => {
 			activatePlan();
-			notify('Enterprise activated. Welcome to LinkinPark.');
+			notify('Enterprise activated. Welcome to LinkedinPark.');
 			goto('/app');
 		}, 900);
 	}
 </script>
 
-<svelte:head><title>Activate Enterprise · LinkinPark</title></svelte:head>
+<svelte:head><title>Activate Enterprise · LinkedinPark</title></svelte:head>
 
 <div class="min-h-screen bg-canvas">
 	<header class="mx-auto flex h-[70px] max-w-[1100px] items-center justify-between px-5 md:px-8">
@@ -45,7 +45,7 @@
 			<div class="font-mono text-[10px] uppercase tracking-[0.18em] text-mint">Enterprise access</div>
 			<h1 class="mt-3 text-[32px] font-semibold leading-[1.03] tracking-[-0.04em] md:text-[40px]">One workspace.<br />Every growth surface.</h1>
 			<p class="mt-3 max-w-md text-[13px] leading-relaxed text-muted">
-				Activate the full LinkinPark system for your team. One annual plan, ten seats, unlimited agent runs and every module in the workspace.
+				Activate the full LinkedinPark system for your team. One annual plan, ten seats, unlimited agent runs and every module in the workspace.
 			</p>
 
 			<div class="mt-6 grid gap-2 sm:grid-cols-2">

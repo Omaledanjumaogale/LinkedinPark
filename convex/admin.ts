@@ -46,7 +46,7 @@ export const login = action({
 		await ctx.runMutation(internal.admin.recordAudit, {
 			actor: email,
 			action: 'super-admin login',
-			detail: 'Signed in to the LinkinPark super-admin console'
+			detail: 'Signed in to the LinkedinPark super-admin console'
 		});
 
 		return { ok: true, token };

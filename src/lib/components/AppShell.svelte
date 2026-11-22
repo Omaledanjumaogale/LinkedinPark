@@ -74,7 +74,7 @@
 		class:-translate-x-full={!ui.sidebarOpen}
 	>
 		<div class="flex h-[62px] shrink-0 items-center justify-between px-4">
-			<a href="/app" class="rounded-lg" aria-label="LinkinPark home"><Logo /></a>
+			<a href="/app" class="rounded-lg" aria-label="LinkedinPark home"><Logo /></a>
 			<button class="btn btn-ghost btn-sm !px-1.5 lg:hidden" onclick={() => (ui.sidebarOpen = false)} aria-label="Close menu">
 				<Icon name="x" size={16} />
 			</button>

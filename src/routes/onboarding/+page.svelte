@@ -7,7 +7,7 @@
 	let step = $state(0);
 	const steps = [
 		{ key: 'role', title: 'What do you do?', copy: 'This shapes the default pillar mix and research sources.' },
-		{ key: 'audience', title: 'Who are you writing for?', copy: 'LinkinPark scores every draft against this reader.' },
+		{ key: 'audience', title: 'Who are you writing for?', copy: 'LinkedinPark scores every draft against this reader.' },
 		{ key: 'voice', title: 'How should you sound?', copy: 'We lock this into every generation and review pass.' },
 		{ key: 'cadence', title: 'What is your publishing rhythm?', copy: 'The calendar and autopilot use this to plan the week.' }
 	];
@@ -33,7 +33,7 @@
 	}
 </script>
 
-<svelte:head><title>Set up your workspace · LinkinPark</title></svelte:head>
+<svelte:head><title>Set up your workspace · LinkedinPark</title></svelte:head>
 
 <div class="relative flex min-h-screen flex-col overflow-hidden bg-canvas">
 	<div class="pointer-events-none absolute inset-0 mesh"></div>

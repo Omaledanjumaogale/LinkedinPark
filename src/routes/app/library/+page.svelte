@@ -59,7 +59,7 @@
 	}
 </script>
 
-<svelte:head><title>Library · LinkinPark</title></svelte:head>
+<svelte:head><title>Library · LinkedinPark</title></svelte:head>
 
 <PageHeader
 	eyebrow="Library"

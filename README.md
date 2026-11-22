@@ -26,7 +26,7 @@ LinkedinPark is a working SvelteKit + Tailwind application. It runs end-to-end i
 | | |
 | --- | --- |
 | Production site | **https://linkedinpark.ewinproject.org** |
-| Pages.dev | https://linkinpark-1nj.pages.dev |
+| Pages.dev | https://linkedinpark.pages.dev |
 | Backend | Convex `efficient-dotterel-461` (eu-west-1) — https://efficient-dotterel-461.eu-west-1.convex.cloud |
 | Health | `/api/health` — Convex connectivity, AGNES AI, OAuth, admin console, ecosystem binding |
 | Super admin | `/admin` — credentials validated against the Convex backend (hashed, 12 h sessions) |

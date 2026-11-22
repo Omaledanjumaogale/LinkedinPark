@@ -14,7 +14,7 @@
 	};
 </script>
 
-<svelte:head><title>Automations · LinkinPark</title></svelte:head>
+<svelte:head><title>Automations · LinkedinPark</title></svelte:head>
 
 <PageHeader
 	eyebrow="Automations"

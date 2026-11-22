@@ -24,7 +24,7 @@
 	});
 </script>
 
-<svelte:head><title>Agent Roster · LinkinPark</title></svelte:head>
+<svelte:head><title>Agent Roster · LinkedinPark</title></svelte:head>
 
 <PageHeader
 	eyebrow="Agent roster"

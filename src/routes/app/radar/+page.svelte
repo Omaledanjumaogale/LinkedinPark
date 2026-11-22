@@ -50,7 +50,7 @@
 	}
 </script>
 
-<svelte:head><title>Research Radar · LinkinPark</title></svelte:head>
+<svelte:head><title>Research Radar · LinkedinPark</title></svelte:head>
 
 <PageHeader
 	eyebrow="Research radar"
@@ -98,7 +98,7 @@
 					</div>
 					<p class="mt-2.5 text-[11px] leading-relaxed text-muted">{trend.signal}</p>
 					<div class="mt-3 rounded-lg border border-line bg-panel-2/50 p-2.5">
-						<div class="font-mono text-[8px] uppercase tracking-[0.12em] text-faint">LinkinPark angle</div>
+						<div class="font-mono text-[8px] uppercase tracking-[0.12em] text-faint">LinkedinPark angle</div>
 						<div class="mt-1 text-[10.5px] leading-relaxed text-ink">{trend.angle}</div>
 					</div>
 					<div class="mt-3 flex items-center justify-between">
@@ -214,7 +214,7 @@
 	</div>
 </section>
 
-<Modal open={sourceOpen} title="Add a source" description="LinkinPark normalises, chunks and indexes it for retrieval." onclose={() => (sourceOpen = false)}>
+<Modal open={sourceOpen} title="Add a source" description="LinkedinPark normalises, chunks and indexes it for retrieval." onclose={() => (sourceOpen = false)}>
 	<div class="space-y-4">
 		<label class="block"><span class="label">Title</span><input class="input" bind:value={sourceTitle} placeholder="e.g. Win/loss interview · Acme" /></label>
 		<div class="grid grid-cols-2 gap-3">

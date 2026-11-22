@@ -34,7 +34,7 @@
 	const leads30 = $derived(visible.slice(-4).reduce((sum, p) => sum + p.leads, 0));
 </script>
 
-<svelte:head><title>Analytics · LinkinPark</title></svelte:head>
+<svelte:head><title>Analytics · LinkedinPark</title></svelte:head>
 
 <PageHeader
 	eyebrow="Analytics"

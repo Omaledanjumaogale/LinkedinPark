@@ -630,7 +630,7 @@ export const seedState: AppState = {
 		},
 		{
 			id: 's6',
-			title: 'LinkinPark competitive teardown',
+			title: 'LinkedinPark competitive teardown',
 			type: 'Web',
 			url: 'https://example.com/teardown',
 			excerpt:

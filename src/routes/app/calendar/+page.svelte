@@ -100,7 +100,7 @@
 	}
 </script>
 
-<svelte:head><title>Calendar · LinkinPark</title></svelte:head>
+<svelte:head><title>Calendar · LinkedinPark</title></svelte:head>
 
 <PageHeader
 	eyebrow="Content calendar"

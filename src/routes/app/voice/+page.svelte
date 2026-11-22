@@ -52,7 +52,7 @@
 	}
 </script>
 
-<svelte:head><title>Voice & Brand · LinkinPark</title></svelte:head>
+<svelte:head><title>Voice & Brand · LinkedinPark</title></svelte:head>
 
 <PageHeader
 	eyebrow="Voice & brand"

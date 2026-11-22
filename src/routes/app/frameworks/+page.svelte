@@ -38,7 +38,7 @@
 	}
 </script>
 
-<svelte:head><title>Frameworks · LinkinPark</title></svelte:head>
+<svelte:head><title>Frameworks · LinkedinPark</title></svelte:head>
 
 <PageHeader
 	eyebrow="Frameworks"

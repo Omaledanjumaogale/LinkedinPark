@@ -61,7 +61,7 @@
 	}
 </script>
 
-<svelte:head><title>Lead Engine · LinkinPark</title></svelte:head>
+<svelte:head><title>Lead Engine · LinkedinPark</title></svelte:head>
 
 <PageHeader
 	eyebrow="Lead engine"

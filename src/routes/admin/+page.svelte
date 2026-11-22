@@ -18,7 +18,7 @@
 	const stats = $derived(data.stats ?? { workspaces: 0, users: 0, agentRuns: 0, posts: 0, leads: 0, ecosystemInstances: 0, snapshots: 0 });
 </script>
 
-<svelte:head><title>Super Admin · LinkinPark</title></svelte:head>
+<svelte:head><title>Super Admin · LinkedinPark</title></svelte:head>
 
 <div class="min-h-screen bg-canvas">
 	<header class="mx-auto flex h-[64px] max-w-[1100px] items-center justify-between px-5">

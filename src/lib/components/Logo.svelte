@@ -21,5 +21,5 @@
 			<circle cx="47" cy="16" r="4.4" fill="#b9f36b" />
 		</svg>
 	</span>
-	<span class="font-display text-[15px] font-semibold tracking-tight">LinkinPark</span>
+	<span class="font-display text-[15px] font-semibold tracking-tight">LinkedinPark</span>
 </span>

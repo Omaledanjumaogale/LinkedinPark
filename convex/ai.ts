@@ -121,7 +121,7 @@ export const generateHandler = httpAction(async (ctx, request) => {
 	}
 
 	const result = await ctx.runAction(internal.ai.structuredCompletion, {
-		system: body.system ?? 'You are the LinkinPark LinkedIn growth operating system. Write in a direct, warm, specific voice. Never use banned words like delve, leverage, unlock or game-changer.',
+		system: body.system ?? 'You are the LinkedinPark LinkedIn growth operating system. Write in a direct, warm, specific voice. Never use banned words like delve, leverage, unlock or game-changer.',
 		user: body.user,
 		model: body.model
 	});

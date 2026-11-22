@@ -28,10 +28,10 @@
 	];
 
 	const faqs = [
-		{ q: 'Why $5,000 per year?', a: 'LinkinPark is one enterprise workspace, not a $29 content scheduler. The plan includes ten seats, unlimited agent runs, research credits, lead intelligence, profile optimisation, automations and priority support. It replaces four to six separate tools and the manual work between them.' },
+		{ q: 'Why $5,000 per year?', a: 'LinkedinPark is one enterprise workspace, not a $29 content scheduler. The plan includes ten seats, unlimited agent runs, research credits, lead intelligence, profile optimisation, automations and priority support. It replaces four to six separate tools and the manual work between them.' },
 		{ q: 'Do I need API keys to try it?', a: 'No. The demo workspace ships with a complete seeded company, twelve agents and a deterministic generation engine. Agent runs, scoring, research and lead qualification all work without a provider key. Connecting your own models is optional.' },
 		{ q: 'Does it post to LinkedIn for me?', a: 'The workspace prepares, scores and schedules content. Publishing is a deliberate human gate: you approve the copy, then publish via the connected LinkedIn integration or copy the final post. Automations can draft and route, never publish without approval by default.' },
-		{ q: 'How is this different from a content calendar?', a: 'A calendar manages output. LinkinPark manages the system that produces output: evidence, voice, research, scoring, profile conversion, lead qualification and the learning loop after publishing.' },
+		{ q: 'How is this different from a content calendar?', a: 'A calendar manages output. LinkedinPark manages the system that produces output: evidence, voice, research, scoring, profile conversion, lead qualification and the learning loop after publishing.' },
 		{ q: 'Can my team use it together?', a: 'Yes. Enterprise includes ten seats with Owner, Admin, Editor and Analyst roles, shared evidence, review queues, audit history and workspace-level guardrails.' }
 	];
 
@@ -39,7 +39,7 @@
 </script>
 
 <svelte:head>
-	<title>LinkinPark — The LinkedIn growth operating system</title>
+	<title>LinkedinPark — The LinkedIn growth operating system</title>
 	<meta name="description" content="Research, write, score, schedule and convert on LinkedIn in one enterprise workspace. Voice-locked content, lead intelligence, profile optimisation and governed automations." />
 </svelte:head>
 
@@ -48,7 +48,7 @@
 	<div class="pointer-events-none absolute inset-x-0 top-0 h-[760px] grid-lines opacity-30 [mask-image:linear-gradient(to_bottom,black,transparent)]"></div>
 
 	<header class="relative z-20 mx-auto flex h-[70px] max-w-[1240px] items-center justify-between px-5 md:px-8">
-		<a href="/" aria-label="LinkinPark home"><Logo size={36} /></a>
+		<a href="/" aria-label="LinkedinPark home"><Logo size={36} /></a>
 		<nav class="hidden items-center gap-1 md:flex">
 			<a href="#system" class="btn btn-ghost btn-sm">The system</a>
 			<a href="#modules" class="btn btn-ghost btn-sm">Modules</a>
@@ -72,7 +72,7 @@
 				posting habit into a <span class="gradient-text">revenue system.</span>
 			</h1>
 			<p class="mx-auto mt-6 max-w-xl text-pretty text-[14px] leading-relaxed text-muted md:text-[15px]">
-				LinkinPark unifies research, voice-locked writing, a reviewer-rewrite loop, profile conversion, lead scoring and governed automations in one enterprise workspace.
+				LinkedinPark unifies research, voice-locked writing, a reviewer-rewrite loop, profile conversion, lead scoring and governed automations in one enterprise workspace.
 			</p>
 			<div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
 				<a href="/login?demo=1" class="btn btn-primary btn-lg w-full sm:w-auto">
@@ -100,11 +100,11 @@
 							<span class="h-2 w-2 rounded-full bg-mint/60"></span>
 						</div>
 						<div class="mx-auto flex items-center gap-1.5 rounded-md border border-line bg-black/30 px-3 py-1 font-mono text-[9px] text-faint">
-							<Icon name="lock" size={9} /> app.linkinpark.io/command-center
+							<Icon name="lock" size={9} /> app.linkedinpark.io/command-center
 						</div>
 						<div class="w-10"></div>
 					</div>
-					<div class="grid grid-cols-[44px_1fr] md:grid-cols-[176px_1fr]">
+					<div class="grid grid-cols-1 md:grid-cols-[176px_1fr]">
 						<aside class="hidden border-r border-line bg-[#0a0f16] p-3 md:block">
 							<div class="mb-5 flex items-center gap-2 px-1">
 								<span class="grid h-5 w-5 place-items-center rounded-md bg-gradient-to-br from-mint/30 to-blue/20 font-display text-[9px] font-bold text-mint">F</span>
@@ -116,7 +116,7 @@
 								</div>
 							{/each}
 						</aside>
-						<div class="min-w-0 p-3 md:p-4">
+						<div class="min-w-0 p-3 sm:p-4">
 							<div class="flex items-center justify-between gap-2">
 								<div>
 									<div class="font-mono text-[8px] uppercase tracking-[0.16em] text-faint">Good morning, Maya</div>
@@ -124,11 +124,11 @@
 								</div>
 								<span class="chip chip-mint !py-0.5 text-[8.5px]">Live pipeline</span>
 							</div>
-							<div class="mt-3 grid grid-cols-2 gap-2 lg:grid-cols-4">
+							<div class="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
 								{#each [['Reach', '74.6k', '+22%', 'text-mint'], ['Post score', '92', 'median', 'text-blue'], ['Qualified leads', '84', '+18%', 'text-lime'], ['Meetings', '17', 'this month', 'text-amber']] as [label, value, note, tone]}
 									<div class="rounded-lg border border-line bg-panel/70 p-2.5">
 										<div class="font-mono text-[7.5px] uppercase tracking-[0.12em] text-faint">{label}</div>
-										<div class="mt-1 flex items-baseline gap-1">
+										<div class="mt-1 flex flex-wrap items-baseline gap-x-1.5 gap-y-0">
 											<span class="stat-number text-[17px] {tone}">{value}</span>
 											<span class="text-[7.5px] text-faint">{note}</span>
 										</div>
@@ -201,7 +201,7 @@
 						The work between<br />an idea and a decision.
 					</h2>
 					<p class="mt-4 max-w-md text-[13.5px] leading-relaxed text-muted">
-						Most tools generate text. LinkinPark runs a pipeline: it ingests evidence, extracts the argument, drafts in your voice, scores the result against a hard rubric and rewrites until the post earns the right to be published.
+						Most tools generate text. LinkedinPark runs a pipeline: it ingests evidence, extracts the argument, drafts in your voice, scores the result against a hard rubric and rewrites until the post earns the right to be published.
 					</p>
 					<div class="mt-6 space-y-3">
 						{#each [['Evidence first', 'Every claim can be traced to an approved source in your library.'], ['Voice locked', 'Banned words, cadence and beliefs are enforced at generation time.'], ['Score gated', 'A post below 86/100 goes back to the rewrite agent automatically.'], ['Human approved', 'Publishing is never automatic unless you explicitly configure it.']] as [title, copy]}
@@ -391,7 +391,7 @@
 		<div class="mx-auto flex max-w-[1240px] flex-col gap-5 px-5 py-8 text-[11px] text-faint md:flex-row md:items-center md:justify-between md:px-8">
 			<div class="flex items-center gap-3">
 				<Logo size={28} />
-				<span>© 2026 LinkinPark. The LinkedIn growth operating system.</span>
+				<span>© 2026 LinkedinPark. The LinkedIn growth operating system.</span>
 			</div>
 			<div class="flex flex-wrap items-center gap-5">
 				<a href="#system" class="hover:text-ink">System</a>

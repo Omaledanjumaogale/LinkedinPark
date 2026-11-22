@@ -145,7 +145,7 @@
 	};
 </script>
 
-<svelte:head><title>Content Studio · LinkinPark</title></svelte:head>
+<svelte:head><title>Content Studio · LinkedinPark</title></svelte:head>
 
 <PageHeader
 	eyebrow="Content studio"
